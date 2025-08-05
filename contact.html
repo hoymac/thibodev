@@ -9,8 +9,7 @@
       font-family: 'Poppins', sans-serif;
       background: #f7f9fc;
       color: #333;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       line-height: 1.6;
       font-size: 16px;
     }
@@ -60,14 +59,17 @@
       margin-bottom: 20px;
       text-align: center;
     }
-    p.intro {
-      max-width: 700px;
-      margin: 0 auto 40px auto;
-      font-size: 1.2rem;
+    .intro {
       text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
     form {
-      background: white;
+      background-color: white;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -79,6 +81,8 @@
     }
     input[type="text"],
     input[type="email"],
+    input[type="tel"],
+    input[type="url"],
     textarea {
       width: 100%;
       padding: 12px;
@@ -90,6 +94,17 @@
     textarea {
       resize: vertical;
       height: 150px;
+    }
+    .checkboxes {
+      margin-top: 10px;
+    }
+    .checkboxes label {
+      font-weight: normal;
+      display: block;
+      margin-top: 8px;
+    }
+    .checkboxes input[type="checkbox"] {
+      margin-right: 10px;
     }
     button {
       background-color: #2ecc71;
@@ -138,24 +153,44 @@
 
 <main>
   <h2>Nous joindre</h2>
-  <p class="intro">
-    Vous avez des questions, des commentaires ou besoin d'un devis? Remplissez le formulaire ci-dessous et nous vous contacterons rapidement.
-  </p>
+  <div class="intro">
+    <p>Vous avez des questions, des commentaires ?</p>
+    <p>Que vous soyez une entreprise locale, nationale ou internationale, nous serions heureux de vous compter parmi nos clients. N’hésitez pas à nous demander n’importe quoi !</p>
+    <p>D’ailleurs, même si vous n’êtes qu’un particulier qui tente de faire sa place sur le Web, nous ferons tout en notre possible pour que vous ayez une expérience hors de l’ordinaire. Nous écouterons vos besoins et analyserons les critères de votre projet.</p>
+    <p><strong>Complétez le formulaire ci-dessous ou composez le <u>819-000-0000</u> dès aujourd’hui !</strong></p>
+  </div>
 
-  <form action="https://formsubmit.co/thibodev@hotmail.com" method="POST">
+  <form action="#" method="post">
     <label for="nom">Nom *</label>
     <input type="text" id="nom" name="nom" required>
+
+    <label for="entreprise">Entreprise / Organisation</label>
+    <input type="text" id="entreprise" name="entreprise">
 
     <label for="email">Adresse courriel *</label>
     <input type="email" id="email" name="email" required>
 
-    <label for="message">Message *</label>
-    <textarea id="message" name="message" required></textarea>
+    <label for="telephone">Téléphone</label>
+    <input type="tel" id="telephone" name="telephone">
 
-    <!-- Optional: redirect after submit -->
-    <input type="hidden" name="_next" value="https://yourdomain.com/merci.html">
+    <label for="siteweb">Site Web</label>
+    <input type="url" id="siteweb" name="siteweb">
 
-    <button type="submit">Envoyer</button>
+    <label>Cochez les services qui vous intéressent *</label>
+    <div class="checkboxes">
+      <label><input type="checkbox" name="services" value="Développement Web"> Développement Web</label>
+      <label><input type="checkbox" name="services" value="Hébergement Web"> Hébergement Web</label>
+      <label><input type="checkbox" name="services" value="Entretien Web"> Entretien Web</label>
+      <label><input type="checkbox" name="services" value="Autre"> Autre</label>
+    </div>
+
+    <label for="source">Comment avez-vous entendu parler de nous? *</label>
+    <input type="text" id="source" name="source" required>
+
+    <label for="message">Message / Commentaire(s)</label>
+    <textarea id="message" name="message"></textarea>
+
+    <button type="submit">Soumettre</button>
   </form>
 </main>
 

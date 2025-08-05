@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nous joindre - Thibodev Solutions Inc.</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contactez-nous - Thibodev Solutions Inc.</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f8fb;
+      font-family: 'Poppins', sans-serif;
+      background: #f7f9fc;
       color: #333;
       margin: 0;
       padding: 0;
+      line-height: 1.6;
+      font-size: 16px;
     }
     header {
-      background: linear-gradient(135deg, #2c3e50, #1abc9c);
+      background: linear-gradient(135deg, #21759b, #2ecc71);
       color: white;
       padding: 40px 20px;
       text-align: center;
@@ -23,27 +25,49 @@
       margin-bottom: 10px;
     }
     header p {
-      font-size: 1.2rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    nav {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    nav a {
+      color: white;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: 2px solid transparent;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    nav a:hover, nav a.active {
+      background: white;
+      color: #2ecc71;
+      border-color: #2ecc71;
     }
     main {
       max-width: 900px;
       margin: 40px auto;
-      padding: 20px;
+      padding: 0 20px;
     }
     h2 {
-      font-size: 2rem;
-      color: #2c3e50;
+      color: #21759b;
+      font-weight: 700;
+      font-size: 2.4rem;
       margin-bottom: 20px;
       text-align: center;
     }
-    .intro {
+    p.intro {
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      font-size: 1.2rem;
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 1.1rem;
-      line-height: 1.6;
     }
     form {
-      background-color: white;
+      background: white;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -55,8 +79,6 @@
     }
     input[type="text"],
     input[type="email"],
-    input[type="tel"],
-    input[type="url"],
     textarea {
       width: 100%;
       padding: 12px;
@@ -69,19 +91,8 @@
       resize: vertical;
       height: 150px;
     }
-    .checkboxes {
-      margin-top: 10px;
-    }
-    .checkboxes label {
-      font-weight: normal;
-      display: block;
-      margin-top: 8px;
-    }
-    .checkboxes input[type="checkbox"] {
-      margin-right: 10px;
-    }
     button {
-      background-color: #1abc9c;
+      background-color: #2ecc71;
       color: white;
       padding: 15px 30px;
       border: none;
@@ -94,68 +105,66 @@
       margin-right: auto;
     }
     button:hover {
-      background-color: #16a085;
+      background-color: #27ae60;
     }
     footer {
-      margin-top: 60px;
       text-align: center;
       color: #555;
-      font-size: 0.95rem;
-      padding-bottom: 30px;
+      font-size: 1rem;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+    footer a {
+      color: #21759b;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Nous joindre</h1>
-  <p>Contactez Thibodev Solutions Inc.</p>
+  <h1>Thibodev Solutions Inc.</h1>
+  <p>Experts en développement Web sur mesure</p>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="developpement.html">Développement Web</a>
+    <a href="hebergement.html">Hébergement Web</a>
+    <a href="contact.html" class="active">Contactez-nous</a>
+  </nav>
 </header>
 
 <main>
-  <div class="intro">
-    <p>Vous avez des questions, des commentaires?</p>
-    <p>Que vous soyez une entreprise locale, nationale ou internationale, nous serions heureux de vous compter parmi nos clients. N’hésitez pas à nous demander n’importe quoi!</p>
-    <p>D’ailleurs, même si vous n’êtes qu’un particulier qui tente de faire sa place sur le Web, nous ferons tout en notre possible pour que vous ayez une expérience hors de l’ordinaire. Nous écouterons vos besoins et analyserons les critères de votre projet.</p>
-    <p><strong>Complétez le formulaire ci-dessous ou composez le <u>819-000-0000</u> dès aujourd’hui!</strong></p>
-  </div>
+  <h2>Nous joindre</h2>
+  <p class="intro">
+    Vous avez des questions, des commentaires ou besoin d'un devis? Remplissez le formulaire ci-dessous et nous vous contacterons rapidement.
+  </p>
 
-  <form action="#" method="post">
+  <form action="https://formsubmit.co/thibodev@hotmail.com" method="POST">
     <label for="nom">Nom *</label>
     <input type="text" id="nom" name="nom" required>
-
-    <label for="entreprise">Entreprise / Organisation</label>
-    <input type="text" id="entreprise" name="entreprise">
 
     <label for="email">Adresse courriel *</label>
     <input type="email" id="email" name="email" required>
 
-    <label for="telephone">Téléphone</label>
-    <input type="tel" id="telephone" name="telephone">
+    <label for="message">Message *</label>
+    <textarea id="message" name="message" required></textarea>
 
-    <label for="siteweb">Site Web</label>
-    <input type="url" id="siteweb" name="siteweb">
+    <!-- Optional: redirect after submit -->
+    <input type="hidden" name="_next" value="https://yourdomain.com/merci.html">
 
-    <label>Cochez les services qui vous intéressent *</label>
-    <div class="checkboxes">
-      <label><input type="checkbox" name="services" value="Développement Web"> Développement Web</label>
-      <label><input type="checkbox" name="services" value="Hébergement Web"> Hébergement Web</label>
-      <label><input type="checkbox" name="services" value="Entretien Web"> Entretien Web</label>
-      <label><input type="checkbox" name="services" value="Autre"> Autre</label>
-    </div>
-
-    <label for="source">Comment avez-vous entendu parler de nous? *</label>
-    <input type="text" id="source" name="source" required>
-
-    <label for="message">Message / Commentaire(s)</label>
-    <textarea id="message" name="message"></textarea>
-
-    <button type="submit">Soumettre</button>
+    <button type="submit">Envoyer</button>
   </form>
 </main>
 
 <footer>
-  <p>&copy; 2025 Thibodev Solutions Inc. | 152 RUE ISABELLE, GATINEAU QC J8Y 5H3 | Email: thibodev@hotmail.com</p>
+  <p>
+    &copy; 2025 Thibodev Solutions Inc.<br />
+    152 RUE ISABELLE, GATINEAU QC J8Y 5H3<br />
+    Email: <a href="mailto:thibodev@hotmail.com">thibodev@hotmail.com</a> | Tel: 1-800-283-0000
+  </p>
 </footer>
 
 </body>

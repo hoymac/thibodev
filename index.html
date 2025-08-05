@@ -120,6 +120,84 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Testimonials Carousel Styles */
+    .testimonial-carousel {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      background: white;
+      padding: 40px 20px 60px 20px;
+    }
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+    .testimonial {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 0 30px;
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      position: relative;
+    }
+    .testimonial::before {
+      content: "“";
+      font-size: 4rem;
+      color: #1abc9c;
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      font-weight: 700;
+      font-family: serif;
+    }
+    .testimonial::after {
+      content: "”";
+      font-size: 4rem;
+      color: #1abc9c;
+      position: absolute;
+      bottom: -40px;
+      right: 20px;
+      font-weight: 700;
+      font-family: serif;
+    }
+    .testimonial footer {
+      margin-top: 25px;
+      font-style: normal;
+      font-weight: 700;
+      color: #21759b;
+      font-size: 1rem;
+    }
+    /* Navigation Arrows */
+    .carousel-nav {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+    }
+    .carousel-nav button {
+      background: #1abc9c;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+    .carousel-nav button:hover {
+      background-color: #16a085;
+    }
   </style>
 </head>
 <body>
@@ -170,10 +248,30 @@
 
   <section id="testimonials">
     <h2>Témoignages de clients</h2>
-    <p><em>"L'équipe de Thibodev Solutions a transformé notre site Web en une plateforme professionnelle et facile à gérer. Le résultat dépasse nos attentes."<br />— Marie D.</em></p>
-    <p><em>"Très professionnelle, à l’écoute et réactive. Le développement de notre boutique en ligne s’est fait rapidement et avec beaucoup de soin."<br />— Jean-Marc L.</em></p>
-    <p><em>"Grâce à leur expertise en LearnDash, notre centre de formation a pu proposer un parcours e-learning complet et efficace."<br />— Sophie T.</em></p>
-    <p><em>"Excellente communication et respect des délais, un vrai plaisir de collaborer avec cette équipe."<br />— Laurent P.</em></p>
+    <div class="testimonial-carousel" aria-label="Témoignages de clients">
+      <div class="testimonial-track">
+        <div class="testimonial" role="group" aria-roledescription="slide" aria-label="Témoignage 1">
+          <p>L'équipe de Thibodev Solutions a transformé notre site Web en une plateforme professionnelle et facile à gérer. Le résultat dépasse nos attentes.</p>
+          <footer>— Marie D.</footer>
+        </div>
+        <div class="testimonial" role="group" aria-roledescription="slide" aria-label="Témoignage 2">
+          <p>Très professionnelle, à l’écoute et réactive. Le développement de notre boutique en ligne s’est fait rapidement et avec beaucoup de soin.</p>
+          <footer>— Jean-Marc L.</footer>
+        </div>
+        <div class="testimonial" role="group" aria-roledescription="slide" aria-label="Témoignage 3">
+          <p>Grâce à leur expertise en LearnDash, notre centre de formation a pu proposer un parcours e-learning complet et efficace.</p>
+          <footer>— Sophie T.</footer>
+        </div>
+        <div class="testimonial" role="group" aria-roledescription="slide" aria-label="Témoignage 4">
+          <p>Excellente communication et respect des délais, un vrai plaisir de collaborer avec cette équipe.</p>
+          <footer>— Laurent P.</footer>
+        </div>
+      </div>
+      <div class="carousel-nav" role="group" aria-label="Navigation des témoignages">
+        <button id="prev" aria-label="Témoignage précédent">&#10094;</button>
+        <button id="next" aria-label="Témoignage suivant">&#10095;</button>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -181,9 +279,63 @@
   <p>
     &copy; 2025 Thibodev Solutions Inc.<br />
     152 RUE ISABELLE, GATINEAU QC J8Y 5H3<br />
-    Email: <a href="mailto:thibodev@hotmail.com">thibodev@hotmail.com</a> | Tel: 1-800-283-0000
+    Email: <a href="mailto:yannick@thibodevsolutions.com">yannick@thibodevsolutions.com</a> | Tel: 613-744-1897
   </p>
 </footer>
+
+<script>
+  const track = document.querySelector('.testimonial-track');
+  const slides = Array.from(track.children);
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    track.style.transform = 'translateX(' + (-slideWidth * currentIndex) + 'px)';
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+    updateCarousel();
+  });
+
+  // Optional: swipe support for touch devices
+  let startX = 0;
+  let isDragging = false;
+
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  track.addEventListener('touchmove', e => {
+    if (!isDragging) return;
+    let moveX = e.touches[0].clientX;
+    let diff = startX - moveX;
+
+    if (diff > 50) { // swipe left
+      nextBtn.click();
+      isDragging = false;
+    } else if (diff < -50) { // swipe right
+      prevBtn.click();
+      isDragging = false;
+    }
+  });
+
+  track.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
+  // Initialize carousel on page load
+  window.addEventListener('load', updateCarousel);
+  window.addEventListener('resize', updateCarousel);
+</script>
 
 </body>
 </html>

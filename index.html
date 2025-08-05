@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thibodev Solutions Inc. - Accueil</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7f9fc;
+      color: #333;
+      margin: 0; padding: 0;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    header {
+      background: linear-gradient(135deg, #21759b, #2ecc71);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    nav {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    nav a {
+      color: white;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: 2px solid transparent;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    nav a:hover, nav a.active {
+      background: white;
+      color: #2ecc71;
+      border-color: #2ecc71;
+    }
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      color: #21759b;
+      font-weight: 700;
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    p {
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .services {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .service {
+      background: white;
+      box-shadow: 0 4px 10px rgba(33,117,155,0.15);
+      border-radius: 15px;
+      padding: 25px;
+      flex: 1 1 260px;
+      text-align: center;
+    }
+    .service h3 {
+      color: #21759b;
+      margin-bottom: 15px;
+      font-size: 1.6rem;
+    }
+    .service p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    .btn-more {
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 50px;
+      border: 2px solid #21759b;
+      color: #21759b;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .btn-more:hover {
+      background-color: #21759b;
+      color: white;
+    }
+    footer {
+      text-align: center;
+      color: #555;
+      font-size: 1rem;
+      padding: 40px 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Thibodev Solutions Inc.</h1>
+  <p>Experts en développement Web sur mesure</p>
+  <nav>
+    <a href="#" class="active">Accueil</a>
+    <a href="developpement.html">Développement Web</a>
+    <a href="hebergement.html">Hébergement Web</a>
+    <a href="entretien.html">Entretien Web</a>
+    <a href="#contact">Contactez-nous</a>
+  </nav>
+</header>
+
+<main>
+  <section id="welcome">
+    <h2>Bienvenue</h2>
+    <p>Nous sommes consultants en développement Web<br />Experts WordPress, WooCommerce et LearnDash</p>
+  </section>
+
+  <section id="about">
+    <h2>À propos de nous</h2>
+    <p>Chez Thibodev Solutions, nous mettons l’accent sur la conception de sites et d’applications Web adaptables, abordables et accessibles qui reflètent l’esprit de votre entreprise ou organisme!</p>
+    <p>Surpassant la qualité dans toutes nos réalisations, notre vision est de créer des projets parmi les plus performants sur le Web, alors que notre mission est de fournir un service personnalisé qui répond rapidement et adéquatement aux besoins spécifiques de nos clients.</p>
+  </section>
+
+  <section id="services">
+    <h2>Nos services Web</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Développement Web</h3>
+        <p>Que ce soit pour un site Web ou une application en ligne, nous mettrons tout l’effort nécessaire pour vous livrer un produit de très bonne qualité, en tenant compte de vos contraintes, mais surtout de votre budget, sans toutefois en négliger la qualité.</p>
+        <a href="developpement.html" class="btn-more">En savoir plus...</a>
+      </div>
+      <div class="service">
+        <h3>Hébergement Web</h3>
+        <p>Nous analyserons vos besoins afin de vous fournir une solution fiable, performante et surtout sécuritaire tout en vous guidant dans votre choix de produits connexes comme les noms de domaines et les certificats SSL.</p>
+        <a href="hebergement.html" class="btn-more">En savoir plus...</a>
+      </div>
+      <div class="service">
+        <h3>Entretien Web</h3>
+        <p>Vous n’avez pas le temps de faire les mises à jour logicielles de votre site Web? Avez-vous des copies de sauvegarde en cas d’urgence? Nous vous offrons des forfaits d’entretien qui vous donneront une tranquillité d’esprit.</p>
+        <a href="entretien.html" class="btn-more">En savoir plus...</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2>Témoignages de clients</h2>
+    <p><em>"L'équipe de Thibodev Solutions a transformé notre site Web en une plateforme professionnelle et facile à gérer. Le résultat dépasse nos attentes."<br />— Marie D.</em></p>
+    <p><em>"Très professionnelle, à l’écoute et réactive. Le développement de notre boutique en ligne s’est fait rapidement et avec beaucoup de soin."<br />— Jean-Marc L.</em></p>
+    <p><em>"Grâce à leur expertise en LearnDash, notre centre de formation a pu proposer un parcours e-learning complet et efficace."<br />— Sophie T.</em></p>
+    <p><em>"Excellente communication et respect des délais, un vrai plaisir de collaborer avec cette équipe."<br />— Laurent P.</em></p>
+  </section>
+</main>
+
+<footer>
+  <p>
+    &copy; 2025 Thibodev Solutions Inc.<br />
+    152 RUE ISABELLE, GATINEAU QC J8Y 5H3<br />
+    Email: <a href="mailto:thibodev@hotmail.com">thibodev@hotmail.com</a> | Tel: 1-800-283-0000
+  </p>
+</footer>
+
+</body>
+</html>
